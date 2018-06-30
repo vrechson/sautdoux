@@ -14,8 +14,7 @@ The only controller to this game is spacebar that make the owls jump
 
 
 ## Instalation
-In order to install this game properly just open a MS-Windows in the game correspondent directory and type:
-**> installer.bat sautdoux**
+In order to install this game properly just open a MS-Windows in the game correspondent directory and click at *installer.bat*
 
 ## Notes
 This game works better using 120x30 dimension in windows console.
