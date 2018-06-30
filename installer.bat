@@ -138,14 +138,14 @@ rem -----------------------------------------------------------------
 rem  Set the INCLUDE environment variable to the location of the 
 rem  MASM include files used by Irvine's book.
 rem -----------------------------------------------------------------
-set INCLUDE=%~dp0;%~dp0\lib\masm;%INCLUDE%
+set INCLUDE="%~dp0";"%~dp0\lib\masm;%INCLUDE%"
 
 rem -----------------------------------------------------------------
 rem  Set the LIB environment variable to the location of the 
 rem  Link libraries used by Irvine's book.
 rem -----------------------------------------------------------------
 rem set LIB=%VS_HOME%\VC\LIB;C:\Irvine;%LIB%
-set LIB=%~dp0\lib;%~dp0\lib\masm;%LIB%
+set LIB="%~dp0\lib";"%~dp0\lib\masm;%LIB%"
 
 rem -----------------------------------------------------------------
 rem                   EXECUTE THE ASSEMBLER
@@ -157,7 +157,7 @@ rem  %%F               source filename, held in loop variable
 rem -----------------------------------------------------------------
 
 rem for %%F in (%1 %2 %3 %4 %5) do ml -nologo -c -Zi -Fl %%F.asm
-for %%F in (%1 %2 %3 %4 %5) do %~dp0\lib\masm\ml /nologo /c /coff /Zi /Zd /W3 /FR /Fm /Fl %%F.asm
+for %%F in (%1 %2 %3 %4 %5) do "%~dp0\lib\masm\ml" /nologo /c /coff /Zi /Zd /W3 /FR /Fm /Fl %%F.asm
 
 if errorlevel 1 goto QUIT
 rem (the preceding IF statement only affects the last source file to be assembled)
@@ -182,7 +182,7 @@ echo.
 echo Linking Assembler output files to the Irvine32, Kernel32, User32 And Winmm libraries.
 
 rem SET LINKCMD=link /NOLOGO /DEBUG /SUBSYSTEM:CONSOLE irvine32.lib kernel32.lib user32.lib
-SET LINKCMD=%~dp0\lib\masm\link /NOLOGO /SUBSYSTEM:CONSOLE /DEBUG /PDB:%1.pdb /DEBUGTYPE:CV lib\Irvine\irvine32.lib lib\Irvine\kernel32.lib lib\Irvine\user32.lib lib\winmm\winmm.lib
+SET LINKCMD="%~dp0\lib\masm\link" /NOLOGO /SUBSYSTEM:CONSOLE /DEBUG /PDB:%1.pdb /DEBUGTYPE:CV lib\Irvine\irvine32.lib lib\Irvine\kernel32.lib lib\Irvine\user32.lib lib\winmm\winmm.lib
 SET FILELIST=%1.obj
 SET EXENAME=%1.exe
 
